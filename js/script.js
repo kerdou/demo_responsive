@@ -8,8 +8,10 @@ $(function () {
     // pageslide est le plugin qui génére le menu latéral gauche
     // il devient visible quand la largeur de la page est inférieure à 600px et qu'on appuie sur le bouton burger
     $(window).resize(function () {
-    // récupération de la largeur de la fenetre        
+
+        // récupération de la largeur de la fenetre        
         var windowWidth = $(window).width();
+
         // si la largeur est inférieure à 600px et que pageslide est caché alors le body peut s'affiche sans restriction
         if ((windowWidth < 600) && ($('#pageslide').is(':hidden'))) {
             $('body').attr('style', '');
@@ -63,24 +65,35 @@ $(function () {
     /******      MAIN PLANETES INT     ******/
     /******                            ******/
 
+    
+    // effet de fondu au chargement de la page pour éviter de voir les planetes glitcher
+    $('#mainplanetesint').ready(function() {
+        $('#mainplanetesint section').fadeIn(1000);
+    });
+
     // déclenchement de la rotation des planètes dans la page des planètes intérieures
     $('#mainplanetesint aside li input').click(function () {
         var affected_Element = $(this).attr('id');
 
         switch (affected_Element) {
             case 'mercurybutton':
+                $('#sol').css({'transition':'linear 1.5s'});
                 $('#mercury').addClass('mercuryanim');
                 break;
             case 'venusbutton':
+                $('#sol').css({'transition':'linear 1.5s'});    
                 $('#venus').addClass('venusanim');
                 break;
             case 'earthbutton':
+                $('#sol').css({'transition':'linear 1.5s'});
                 $('#earth').addClass('earthanim');
                 break;
             case 'marsbutton':
+                $('#sol').css({'transition':'linear 1.5s'});
                 $('#mars').addClass('marsanim');
                 break;
             case 'animbutton':
+                $('#sol').css({'transition':'linear 1.5s'});
                 $('#mercury').addClass('mercuryanim');
                 $('#venus').addClass('venusanim');
                 $('#earth').addClass('earthanim');
@@ -88,8 +101,9 @@ $(function () {
                 break;
             case 'resetbutton':
                 $('.planets').fadeOut(500, 'linear', function(){
-                    $('.planets').removeClass('mercuryanim venusanim earthanim marsanim').fadeIn(500, 'linear').delay(500);
+                    $('.planets').removeClass('mercuryanim venusanim earthanim marsanim').fadeIn(500, 'linear').delay(500);                    
                     solResize();
+                    $('#sol').delay(3000).css({'transition':'linear 0s'});
                 });
                 break;
             default:
@@ -235,6 +249,7 @@ function spacemanResize() {
 // redimensionnement du systéme solaire dans la plage des planètes internes
 // l'idée est que les planètes ne sortent jamais du cadre, il y a un dézoom adapté à chaque cas de figure
 // la taille de fenêtre est prise en compte
+
 function solResize() {
     var windowWidth = $(window).width();
     var solScale;
@@ -266,6 +281,7 @@ function solResize() {
         'transform': 'scale(' + solScale + ')',
         'height': solheight
     });
+
 }
 
 /******                            ******/
