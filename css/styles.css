@@ -24,7 +24,7 @@ body {
 	box-sizing: border-box;
 	overflow: hidden;
 }
- 
+
 /**************** HEADER *********************/
 header img {
 	max-width: 100%;
@@ -293,7 +293,7 @@ footer a:nth-of-type(2) {
 		background: linear-gradient(to right, black, #1C1C1C);
 		border-radius: 0.5em;
 		padding: 1% 1%;
-		margin: 5% 1%;		
+		margin: 5% 1%;
 	}
 
 	#mainaccueil aside p {
@@ -323,8 +323,37 @@ footer a:nth-of-type(2) {
 		-webkit-animation: cosmomove 20s ease-in-out infinite alternate;
 		animation: cosmomove 20s ease-in-out infinite alternate;
 	}
-
 	@-webkit-keyframes cosmomove {
+		0% {
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			left: -15%;
+			bottom: -30%;
+		}
+
+		20% {
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			left: -15%;
+			bottom: -30%;
+		}
+
+		80% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			left: 60%;
+			bottom: 40%;
+		}
+
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			left: 60%;
+			bottom: 40%;
+		}
+	}
+
+	@keyframes cosmomove {
 		0% {
 			-webkit-transform: scale(0);
 			transform: scale(0);
@@ -387,7 +416,7 @@ footer a:nth-of-type(2) {
 	#spacebox div p {
 		display: block;
 		position: absolute;
-		opacity: 0;		
+		opacity: 0;
 	}
 
 	#spacebox div:hover p {
@@ -450,11 +479,9 @@ footer a:nth-of-type(2) {
 
 
 #mainpresentation aside {
-	display: block;
 	vertical-align: top;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 100%;
 	padding: 5% 3% 10% 3%;
 }
 
@@ -539,13 +566,12 @@ footer a:nth-of-type(2) {
 
 /*** RIGHT SECTION ***/
 #mainplanetesint section {
+	display: none;
 	width: 75%;
 }
 
 #sol {
 	position: relative;
-	-webkit-transition: linear 1.5s;
-	transition: linear 1.5s;
 }
 
 #gravity {
