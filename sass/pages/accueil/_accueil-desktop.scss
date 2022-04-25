@@ -1,0 +1,134 @@
+@media only screen and (min-width:37.5em) {
+
+	#mainaccueil {
+        /* LEFT PART: ASIDE MENU */
+        aside {
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            box-sizing: border-box;
+            padding: 0 1% 0 1%;
+
+            h2 {
+                cursor: pointer;
+                background: linear-gradient(to right, black, #1C1C1C);
+                border-radius: 0.5em;
+                padding: 1% 1%;
+                margin: 5% 1%;
+            }
+
+            p {
+                display: none;
+            }
+        }
+
+        /** RIGHT SECTION **/
+        section {
+            display: inline-block;
+            width: 68%;
+            border: 0.1em solid white;
+            box-shadow: 10px 6px 12px 0px rgba(255, 255, 255, 1);
+
+
+            /* TOP PART */
+            #spacebox {
+                overflow: hidden;
+
+                div {
+                    display: flex;
+                    position: absolute;
+                }
+
+                div.cosmomove {
+                    overflow: visible;
+                    animation: cosmomove 20s ease-in-out infinite alternate;
+
+                    img#spaceman {
+                        display: inline-block;
+                        animation: cosmoscillate 5s ease-in-out infinite alternate;
+                    }
+
+                    p {
+                        display: block;
+                        position: absolute;
+                        opacity: 0;
+                    }
+
+                    &:hover {
+                        animation-play-state: paused;
+
+                        p {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            /** BOTTOM PART **/
+            div:last-of-type {
+                padding-bottom: 1%;
+                overflow: hidden;
+
+                img {
+                    max-width: 100%;
+                }
+
+                a:hover {
+                    animation: rotatelink 10s linear infinite;
+                }
+            }
+        }
+    }
+
+
+    /* ANIMATIONS STORE */
+    @keyframes cosmomove {
+        0% {
+            transform: scale(0);
+            left: -15%;
+            bottom: -30%;
+        }
+
+        20% {
+            transform: scale(0);
+            left: -15%;
+            bottom: -30%;
+        }
+
+        80% {
+            transform: scale(1);
+            left: 60%;
+            bottom: 40%;
+        }
+
+        100% {
+            transform: scale(1);
+            left: 60%;
+            bottom: 40%;
+        }
+    }
+
+    /***********/
+
+    @keyframes rotatelink {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /***********/
+
+    @keyframes cosmoscillate {
+        from {
+            transform: rotate(-15deg);
+        }
+
+        to {
+            transform: rotate(15deg);
+        }
+    }
+}

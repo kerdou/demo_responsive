@@ -1,0 +1,58 @@
+@media only screen and (min-width:47em) {
+	main#maincontact {
+		/*** LEFT SECTION: FORM ***/
+		section {
+			margin-top: 4%;
+
+			h1 {
+				font-weight: normal;
+				margin-top: 0;
+			}
+
+			form {
+				margin: 5% 0 3% 10%;
+
+				ul {
+					li {
+						label {
+							display: inline-block;
+							width: 10em;
+						}
+
+						label#label_message {
+							vertical-align: top;
+						}
+
+						label.fieldset_labels {
+							width: auto;
+						}
+
+						input {
+							display: inline-block;
+							width: 20em;
+						}
+
+						input.fieldset_inputs {
+							display: inline;
+						}
+
+						fieldset {
+							display: inline;
+						}
+
+						textarea {
+							display: inline-block;
+							width: 20em;
+							height: 10em;
+						}
+					}
+				}
+			}
+		}
+
+		/***  RIGHT SECTION: MAP  ***/
+		aside {
+			margin-top: 4%;
+		}
+	}
+}

@@ -5,23 +5,23 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Contact</title>
-	<meta name="viewport" content="width=device-width, initiale-scale=1" />
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/jquery.pageslide.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=cléAPI=initMap" async></script> <!-- provoque le lancement de initMap() dans script.js -->
-	<script type="text/javascript" src="js/script.js" async></script>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 	<div id="conteneur">
+
 		<header>
-			<a href="index.html"><img src="img/bandeau.jpg" alt="Bannière HTML CSS jQuery et cosmos"></a>
+			<a href="index.html">
+				<img src="img/bandeau.jpg" alt="Bannière HTML CSS jQuery et cosmos">
+			</a>
 		</header>
+
 		<div id="topmenu">
-			<a class="open" href="#js-menu">Menu</a>
+			<a id="burger_menu_button" href="#js-menu"></a>
+
 			<nav id="js-menu" class="menu">
 				<h1 class="mobileonly">Menu principal</h1>
 				<ul>
@@ -29,7 +29,7 @@
 					<li><a href="presentation.html">Présentation</a></li>
 					<li id="planets" class="desktoponly">
 						<a href="#">Les planètes</a>
-						<ul class="submenu">
+						<ul id="submenu">
 							<li><a href="planetesint.html">Intérieures</a></li>
 							<li><a href="planetesgeantes.html">Géantes</a></li>
 						</ul>
@@ -37,48 +37,89 @@
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</nav>
+
 		</div>
+
 		<main id="maincontact" class="main">
+
 			<section>
 				<h1>Contactez-nous à l'aide du formulaire ci-dessous:</h1>
 				<form id="formulaire">
 					<ul>
-						<li><label for="nom_Field">Nom* :</label><input id="nom_Field" class="default_border" type="text" placeholder="Votre nom"
-							 autofocus required></li>
-						<li><label for="prenom_Field">Prénom :</label><input id="prenom_Field" type="text" placeholder="Votre prénom"></li>
-						<li><label for="sexe_Field">Sexe :</label>
+						<li>
+							<label for="nom_Field">Nom* :</label>
+							<input id="nom_Field" class="default_border" type="text" placeholder="Votre nom" autofocus
+								required>
+						</li>
+						<li>
+							<label for="prenom_Field">Prénom :</label>
+							<input id="prenom_Field" type="text" placeholder="Votre prénom">
+						</li>
+						<li>
+							<label for="sexe_Field">Sexe :</label>
 							<fieldset>
-								<input type="radio" id="id_sexe_homme" class="fieldset_inputs" name="sexe" value="rad_homme"> <label class="fieldset_labels" for="id_sexe_homme">Homme</label>
-								<input type="radio" id="id_sexe_femme" class="fieldset_inputs" name="sexe" value="rad_femme"> <label class="fieldset_labels" for="id_sexe_femme">Femme</label>
-								<input type="radio" id="id_sexe_et" class="fieldset_inputs" name="sexe" value="rad_et"> <label class="fieldset_labels" for="id_sexe_et">Extra-terrestre</label>
+								<input type="radio" id="id_sexe_homme" class="fieldset_inputs" name="sexe"
+									value="rad_homme">
+								<label class="fieldset_labels" for="id_sexe_homme">Homme</label>
+								<input type="radio" id="id_sexe_femme" class="fieldset_inputs" name="sexe"
+									value="rad_femme">
+								<label class="fieldset_labels" for="id_sexe_femme">Femme</label>
+								<input type="radio" id="id_sexe_et" class="fieldset_inputs" name="sexe" value="rad_et">
+								<label class="fieldset_labels" for="id_sexe_et">Extra-terrestre</label>
 							</fieldset>
 						</li>
-						<li><label for="tel_Field">Téléphone :</label><input id="tel_Field" type="tel" placeholder="0123456789" maxlength="10"></li>
-						<li><label for="email_Field">E-mail* :</label><input id="email_Field" class="default_border" type="email"
-							 placeholder="xxx@yyyy.zzz" required></li>
-						<li><label for="date_Field">Date :</label><input id="date_Field" class="default_border" type="date"></li>
-						<li class="desktoponly"><label for="file">Piéce jointe :</label><input type="file" id="file" name="PJ" /></li>
-						<li><label id="label_message" for="message_Field">Votre message :</label><textarea id="message_Field" name="message" maxlength="250"></textarea></li>
-						<li><label></label><button id="reinit_button" type="button">Réinitialiser</button><button id="send_button" type="submit">Valider</button></li>
+						<li>
+							<label for="tel_Field">Téléphone :</label>
+							<input id="tel_Field" type="tel" placeholder="0123456789" maxlength="10">
+						</li>
+						<li>
+							<label for="email_Field">E-mail* :</label>
+							<input id="email_Field" class="default_border" type="email" placeholder="xxx@yyyy.zzz"
+								required>
+						</li>
+						<li>
+							<label for="date_Field">Date :</label>
+							<input id="date_Field" class="default_border" type="date">
+						</li>
+						<li class="desktoponly">
+							<label for="file">Piéce jointe :</label>
+							<input type="file" id="file" name="PJ" />
+						</li>
+						<li>
+							<label id="label_message" for="message_Field">Votre message :</label>
+							<textarea id="message_Field" name="message" maxlength="250"></textarea>
+						</li>
+						<li id="buttons_box">
+							<button id="reinit_button" type="button">Réinitialiser</button>
+							<button id="send_button" type="submit">Valider</button>
+						</li>
 					</ul>
 				</form>
 			</section>
+
 			<aside>
 				<h1>Contactez-nous:</h1>
 				<p>Tél: 01 02 03 04 05 <br> Rue du Cosmos 44049 Triton</p>
 				<div id="map"></div>
 			</aside>
+
 		</main>
+
 		<footer>
-			<a href="index.html">Accueil</a><a href="#">Mention légales</a><a href="contact.html">Contact</a>
+			<a href="index.html">Accueil</a>
+			<span>|</span>
+			<a href="#">Mention légales</a>
+			<span>|</span>
+			<a href="contact.html">Contact</a>
 		</footer>
 
-		<script type="text/javascript" src="js/jquery.pageslide.min.js"></script>
-		<!--on ne met pas le script dans le head car le plug-in crée une div-->
-		<script type="text/javascript">
-			$(".open").pageslide();
-		</script>
 	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3ANa1Dcn2o-IvAWMzuWm-qHro5siUsYI&callback=initMap">
+	</script>
+	<script type="text/javascript" src="js/jquery.pageslide.min.js"></script>
 </body>
 
 </html>

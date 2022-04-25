@@ -3,23 +3,36 @@ $(function () {
     /******         jQUERY             ******/
     /******      COMMON SECTION        ******/
     /******                            ******/
+    $("#burger_menu_button").pageslide();
+
     pageChecker(); // déclencheur des fonctions de redimensionnements suivant la page affichée
 
     // pageslide est le plugin qui génére le menu latéral gauche
     // il devient visible quand la largeur de la page est inférieure à 600px et qu'on appuie sur le bouton burger
     $(window).resize(function () {
-    // récupération de la largeur de la fenetre        
-        var windowWidth = $(window).width();
-        // si la largeur est inférieure à 600px et que pageslide est caché alors le body peut s'affiche sans restriction
-        if ((windowWidth < 600) && ($('#pageslide').is(':hidden'))) {
-            $('body').attr('style', '');
-        // si la largeur est inférieure à 600px et que pageslide est visible alors le body se rétracte de 60% à gauche pour laisser
-        // la place à pageslide de s'afficher
-        } else if ((windowWidth < 600) && ($('#pageslide').is(':visible'))) {
-            $('body').attr('style', 'margin-left: 60%');
-        // si la largeur est supérieure à 600px alors il faut cacher pageslide et laisser le body s'afficher sur toute la largeur    
-        } else {
-            $('#pageslide').attr('style', 'display: none');
+        let windowWidth = $(window).width();
+        let href = window.location.href;
+        let suitablePageForMobile = true;
+
+        pageIsGiant = href.includes('planetesgeantes.html') ? true : false;
+        pageIsInt = href.includes('planetesint.html') ? true : false;
+        suitablePageForMobile = ((pageIsGiant) || (pageIsInt)) ? false : true;
+
+        if (windowWidth < 600) {
+            // renvoie vers index.html si on essaie d'afficher les pages des planètes géantes ou des planètes intérieurs sur un mobile
+            if (suitablePageForMobile == false) {
+                href = href.replace('planetesgeantes.html', '');
+                href = href.replace('planetesint.html', '');
+                href += 'index.html';
+                window.location.replace(href);
+            }
+
+            // si la largeur est inférieure à 600px et que pageslide est caché alors le body peut s'afficher sans restriction
+            if ($('#pageslide').is(':hidden')) {
+                $('body').attr('style', '');
+            }
+        } else { // repli du pageslide si la largeur dépasse 600px
+            $.pageslide.close();
             $('body').attr('style', '');
         }
 
@@ -51,17 +64,16 @@ $(function () {
     /******       MAIN ACCUEIL         ******/
     /******         jQUERY             ******/
     /****************************************/
-    /******         jQUERY             ******/
-    /******     MAIN PRESENTATION      ******/
-    /******                            ******/
-
-    /******                            ******/
-    /******     MAIN PRESENTATION      ******/
-    /******         jQUERY             ******/
     /****************************************/
     /******         jQUERY             ******/
     /******      MAIN PLANETES INT     ******/
     /******                            ******/
+
+
+    // effet de fondu au chargement de la page pour éviter de voir les planetes glitcher
+    $('#mainplanetesint').ready(function () {
+        $('#mainplanetesint section').fadeIn(1000);
+    });
 
     // déclenchement de la rotation des planètes dans la page des planètes intérieures
     $('#mainplanetesint aside li input').click(function () {
@@ -69,35 +81,59 @@ $(function () {
 
         switch (affected_Element) {
             case 'mercurybutton':
+                $('#sol').css({
+                    'transition': 'linear 1.5s'
+                });
                 $('#mercury').addClass('mercuryanim');
                 break;
+
             case 'venusbutton':
+                $('#sol').css({
+                    'transition': 'linear 1.5s'
+                });
                 $('#venus').addClass('venusanim');
                 break;
+
             case 'earthbutton':
+                $('#sol').css({
+                    'transition': 'linear 1.5s'
+                });
                 $('#earth').addClass('earthanim');
                 break;
+
             case 'marsbutton':
+                $('#sol').css({
+                    'transition': 'linear 1.5s'
+                });
                 $('#mars').addClass('marsanim');
                 break;
+
             case 'animbutton':
+                $('#sol').css({
+                    'transition': 'linear 1.5s'
+                });
                 $('#mercury').addClass('mercuryanim');
                 $('#venus').addClass('venusanim');
                 $('#earth').addClass('earthanim');
                 $('#mars').addClass('marsanim');
                 break;
+
             case 'resetbutton':
-                $('.planets').fadeOut(500, 'linear', function(){
+                $('.planets').fadeOut(500, 'linear', function () {
                     $('.planets').removeClass('mercuryanim venusanim earthanim marsanim').fadeIn(500, 'linear').delay(500);
                     solResize();
+                    $('#sol').delay(3000).css({
+                        'transition': 'linear 0s'
+                    });
                 });
                 break;
+
             default:
                 console.log('Buttons for planet int have issues');
                 break;
         }
 
-        solResize(); // 
+        solResize(); //
     });
 
     /******                            ******/
@@ -115,25 +151,45 @@ $(function () {
 
         switch (affected_Element) {
             case 'jupiter':
-                popup_Content = ['img/jupiter.png', 'Jupiter', 'Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.'];
+                popup_Content = {
+                    imgPath: 'img/jupiter.png',
+                    planetName: 'Jupiter',
+                    planetDescr: 'Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.'
+                };
                 break;
+
             case 'saturne':
-                popup_Content = ['img/saturne.png', 'Saturne', 'Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae.'];
+                popup_Content = {
+                    imgPath: 'img/saturne.png',
+                    planetName: 'Saturne',
+                    planetDescr: 'Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae.'
+                };
                 break;
+
             case 'uranus':
-                popup_Content = ['img/uranus.png', 'Uranus', 'Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.'];
+                popup_Content = {
+                    imgPath: 'img/uranus.png',
+                    planetName: 'Uranus',
+                    planetDescr: 'Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.'
+                };
                 break;
+
             case 'neptune':
-                popup_Content = ['img/neptune.png', 'Neptune', 'Alii nullo quaerente vultus severitate adsimulata patrimonia sua in inmensum extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a primo ad ultimum solem se abunde iactitant possidere, ignorantes profecto maiores suos, per quos ita magnitudo Romana porrigitur, non divitiis eluxisse sed per bella saevissima, nec opibus nec victu nec indumentorum vilitate gregariis militibus discrepantes opposita cuncta superasse virtute.'];
+                popup_Content = {
+                    imgPath: 'img/neptune.png',
+                    planetName: 'Neptune',
+                    planetDescr: 'Alii nullo quaerente vultus severitate adsimulata patrimonia sua in inmensum extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a primo ad ultimum solem se abunde iactitant possidere, ignorantes profecto maiores suos, per quos ita magnitudo Romana porrigitur, non divitiis eluxisse sed per bella saevissima, nec opibus nec victu nec indumentorum vilitate gregariis militibus discrepantes opposita cuncta superasse virtute.'
+                };
                 break;
+
             default:
                 console.log('Planet selection has issues');
                 break;
         }
 
-        $('#planetpic').attr('src', popup_Content[0]);
-        $('#planetname').text(popup_Content[1]);
-        $('#poptext').text(popup_Content[2]);
+        $('#planetpic').attr('src', popup_Content.imgPath);
+        $('#planetname').text(popup_Content.planetName);
+        $('#poptext').text(popup_Content.planetDescr);
 
         $('#conteneur').css({
             'opacity': '0.4',
@@ -153,19 +209,6 @@ $(function () {
         });
     });
 
-
-    /******                            ******/
-    /******   MAIN PLANETES GEANTES    ******/
-    /******         jQUERY             ******/
-    /****************************************/
-    /******         jQUERY             ******/
-    /******        MAIN CONTACT        ******/
-    /******                            ******/
-
-    /******                            ******/
-    /******        MAIN CONTACT        ******/
-    /******         jQUERY             ******/
-    /****************************************/
 
 }); // FIN DU SCRIPT JQUERY
 
@@ -198,7 +241,7 @@ function pageChecker() {
 
 // redimensionnement de l'astronaute qui défile sur la page d'index
 // sa taille dépend de la taille de la fenêtre
-// la taille du texte "hello" dépend aussi de la taille de la fenêtre 
+// la taille du texte "hello" dépend aussi de la taille de la fenêtre
 function spacemanResize() {
     var windowWidth = $(window).width();
     var spacemanMaxWidth;
@@ -220,13 +263,6 @@ function spacemanResize() {
 /******       MAIN ACCUEIL         ******/
 /******           jS               ******/
 /****************************************/
-/******           jS               ******/
-/******     MAIN PRESENTATION      ******/
-/******                            ******/
-
-/******                            ******/
-/******     MAIN PRESENTATION      ******/
-/******           jS               ******/
 /****************************************/
 /******           jS               ******/
 /******      MAIN PLANETES INT     ******/
@@ -235,6 +271,7 @@ function spacemanResize() {
 // redimensionnement du systéme solaire dans la plage des planètes internes
 // l'idée est que les planètes ne sortent jamais du cadre, il y a un dézoom adapté à chaque cas de figure
 // la taille de fenêtre est prise en compte
+
 function solResize() {
     var windowWidth = $(window).width();
     var solScale;
@@ -243,7 +280,7 @@ function solResize() {
 
     if ($('#mars').hasClass('marsanim')) {
         solReScale = 0.5;
-    } else if ($('#earth').hasClass('earthanim'))  {
+    } else if ($('#earth').hasClass('earthanim')) {
         solReScale = 0.6;
     } else if ($('#venus').hasClass('venusanim')) {
         solReScale = 0.7;
@@ -258,7 +295,7 @@ function solResize() {
         solheight = 25 + 'em';
     } else if ((windowWidth > 600) && (windowWidth < 1024)) {
         var windowVariation = (windowWidth - 600);
-        solScale = (((windowVariation / 942) + 0.55).toFixed(2)*solReScale);
+        solScale = (((windowVariation / 942) + 0.55).toFixed(2) * solReScale);
         solheight = ((windowVariation / 85) + 20).toFixed(2) + 'em';
     }
 
@@ -266,6 +303,7 @@ function solResize() {
         'transform': 'scale(' + solScale + ')',
         'height': solheight
     });
+
 }
 
 /******                            ******/

@@ -1,0 +1,27 @@
+@media only screen and (min-width:37.5em) {
+	main#maincontact {
+		/*** LEFT SECTION: FORM ***/
+		section {
+			display: inline-block;
+			width: 65%;
+		}
+
+		/***  RIGHT SECTION: MAP  ***/
+		aside {
+			display: inline-block;
+			width: 34%;
+
+			div#map {
+				display: none;
+				left: 2px;
+			}
+
+			&:hover {
+				div#map {
+					display: block;
+					animation: maprotanim 1s;
+				}
+			}
+		}
+	}
+}

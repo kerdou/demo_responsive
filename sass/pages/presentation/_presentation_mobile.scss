@@ -1,0 +1,27 @@
+#mainpresentation {
+	aside {
+		display: block;
+		vertical-align: top;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 5% 3% 10% 3%;
+	}
+
+	section {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 100%;
+		margin-bottom: 10%;
+
+		h1 {
+			margin: 2% 0;
+			text-align: center;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+
+		iframe {
+			width: 100%;
+		}
+	}
+}

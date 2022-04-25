@@ -5,18 +5,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Planètes géantes</title>
-	<meta name="viewport" content="width=device-width, initiale-scale=1" />
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/jquery.pageslide.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/script.js" async></script>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 	<div id="overcontainer">
 		<div id="popup">
+
 			<section id="popupcontent">
 				<div>
 					<img id="planetpic" src="#" alt="">
@@ -25,14 +22,20 @@
 				</div>
 				<p id="poptext"></p>
 			</section>
+
 		</div>
 
 		<div id="conteneur" class="giantPage">
+
 			<header>
-				<a href="index.html"><img src="img/bandeau.jpg" alt="Bannière HTML CSS jQuery et cosmos"></a>
+				<a href="index.html">
+					<img src="img/bandeau.jpg" alt="Bannière HTML CSS jQuery et cosmos">
+				</a>
 			</header>
+
 			<div id="topmenu">
-				<a class="open" href="#js-menu">Menu</a>
+				<a id="burger_menu_button" href="#js-menu"></a>
+
 				<nav id="js-menu" class="menu">
 					<h1 class="mobileonly">Menu principal</h1>
 					<ul>
@@ -40,7 +43,7 @@
 						<li><a href="presentation.html">Présentation</a></li>
 						<li id="planets" class="desktoponly">
 							<a href="#">Les planètes</a>
-							<ul class="submenu">
+							<ul id="submenu">
 								<li><a href="planetesint.html">Intérieures</a></li>
 								<li><a href="planetesgeantes.html">Géantes</a></li>
 							</ul>
@@ -48,45 +51,59 @@
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
 				</nav>
+
 			</div>
+
 			<main id="mainplanetesgeantes" class="main">
 				<h1>Cliquez sur les planètes pour plus d'infos</h1>
 				<div>
 					<ul id="giantcontainer">
-						<li id="jupiter"><a href="#">
+						<li id="jupiter">
+							<a href="#">
 								<figure><img src="img/jupiter.png" alt="découverte du Jupiter">
 									<figcaption>Jupiter</figcaption>
 								</figure>
-							</a></li>
-						<li id="saturne"><a href="#">
+							</a>
+						</li>
+						<li id="saturne">
+							<a href="#">
 								<figure><img src="img/saturne.png" alt="découverte du Saturne">
 									<figcaption>Saturne</figcaption>
 								</figure>
-							</a></li>
-						<li id="uranus"><a href="#">
+							</a>
+						</li>
+						<li id="uranus">
+							<a href="#">
 								<figure><img src="img/uranus.png" alt="découverte du Uranus">
 									<figcaption>Uranus</figcaption>
 								</figure>
-							</a></li>
-						<li id="neptune"><a href="#">
+							</a>
+						</li>
+						<li id="neptune">
+							<a href="#">
 								<figure><img src="img/neptune.png" alt="découverte du Neptune">
 									<figcaption>Neptune</figcaption>
 								</figure>
-							</a></li>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</main>
+
 			<footer>
-				<a href="index.html">Accueil</a><a href="#">Mention légales</a><a href="contact.html">Contact</a>
+				<a href="index.html">Accueil</a>
+				<span>|</span>
+				<a href="#">Mention légales</a>
+				<span>|</span>
+				<a href="contact.html">Contact</a>
 			</footer>
 
-			<script type="text/javascript" src="js/jquery.pageslide.min.js"></script>
-			<!--on ne met pas le script dans le head car le plug-in crée une div-->
-			<script type="text/javascript">
-				$(".open").pageslide();
-			</script>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery.pageslide.min.js"></script>
 </body>
 
 </html>

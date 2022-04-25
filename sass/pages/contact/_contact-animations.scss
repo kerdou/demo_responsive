@@ -1,0 +1,11 @@
+main#maincontact {
+	@keyframes maprotanim {
+		from {
+			transform: scale(0) rotate(0deg);
+		}
+
+		to {
+			transform: scale(1) rotate(360deg);
+		}
+	}
+}

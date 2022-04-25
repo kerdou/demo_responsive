@@ -1,0 +1,46 @@
+#mainaccueil {
+	/* LEFT PART: ASIDE MENU */
+	aside {
+		display: none;
+	}
+
+
+	/** RIGHT SECTION **/
+	section {
+		width: 100%;
+		vertical-align: top;
+		box-sizing: border-box;
+
+		h1 {
+			text-align: center;
+			font-size: 1.3em;
+			font-weight: bold;
+			margin: 3% 0;
+		}
+
+		div#spacebox {
+			position: relative;
+
+			div#cosmomove {
+				display: none;
+
+				p {
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+
+		}
+
+		& > div:last-of-type {
+			display: flex;
+			-ms-flex-pack: distribute;
+			justify-content: space-around;
+
+			a {
+				text-align: center;
+				color: white;
+			}
+		}
+	}
+}

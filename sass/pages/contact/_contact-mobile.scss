@@ -1,0 +1,101 @@
+main#maincontact {
+	/*** LEFT SECTION: FORM ***/
+	section {
+		box-sizing: border-box;
+		vertical-align: top;
+		width: 100%;
+
+		h1 {
+			margin: 5% 0;
+			font-weight: bold;
+			font-size: 1.4em;
+			text-align: center;
+		}
+
+		form {
+			margin: 5% 1% 10% 1%;
+
+			ul {
+				li {
+					margin: 5px 0;
+
+					label {
+						display: block;
+						margin: 2% 0 0.5% 0.3%;
+					}
+
+					label.fieldset_labels {
+						display: inline-block;
+						margin: 0;
+					}
+
+					input {
+						display: block;
+						width: 99%;
+						border-radius: 0.5em;
+						padding-left: 0.1em;
+
+						&:focus::placeholder {
+							background-color: grey;
+							color: white;
+						}
+					}
+
+					input.fieldset_inputs {
+						display: inline-block;
+						width: auto;
+						margin: 0;
+					}
+
+					input#date_Field {
+						width: auto;
+					}
+
+					textarea {
+						display: block;
+						width: 99%;
+						height: 10em;
+						border-radius: 0.5em;
+						padding-left: 0.1em;
+						margin-bottom: 2%;
+					}
+				}
+
+				li#buttons_box {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-content: space-between;
+
+					button {
+						border-radius: 0.5em;
+						margin-right: 1%;
+					}
+				}
+			}
+		}
+	}
+
+	/***  RIGHT SECTION: MAP ***/
+	aside {
+		box-sizing: border-box;
+		vertical-align: top;
+		width: 100%;
+		text-align: center;
+
+		h1 {
+			font-size: 1.5em;
+			font-weight: bold;
+			margin-bottom: 5%;
+		}
+
+		p {
+			margin-bottom: 5%;
+		}
+
+		div#map {
+			margin: 5% 10% 15% 10%;
+			padding-bottom: 50%;
+		}
+	}
+}

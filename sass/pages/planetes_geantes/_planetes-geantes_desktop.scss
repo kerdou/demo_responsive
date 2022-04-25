@@ -1,0 +1,90 @@
+main#mainplanetesgeantes {
+	margin: 5% 1% 10% 1%;
+
+	h1 {
+		text-align: center;
+	}
+
+	div {
+		position: relative;
+
+		ul#giantcontainer {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			bottom: 0;
+
+			li {
+				display: block;
+				flex: 20%;
+				transition: all 0.5s;
+
+				a {
+					text-decoration: none;
+					color: white;
+					text-align: center;
+
+					img {
+						max-width: 100%;
+						display: block;
+						margin: auto;
+						margin-bottom: 5%;
+						transition: all 0.5s;
+					}
+				}
+
+				&:hover {
+					img {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+}
+
+div#popup {
+	display: none;
+	box-sizing: border-box;
+	position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	z-index: 1;
+	width: 83%;
+	max-width: 53em;
+	padding: 1em;
+	box-shadow: 2px 0 20px white;
+	background: url(../img/ciel.jpg) no-repeat;
+	border-radius: 1em;
+
+	section#popupcontent {
+		div {
+			img#planetpic {
+				width: 7em;
+			}
+
+			h1#planetname {
+				display: inline-block;
+				font-size: 2em;
+				padding-top: 0.9em;
+				padding-left: 10%;
+				vertical-align: top;
+			}
+
+			span#cross {
+				display: float;
+				float: right;
+				font-size: 3em;
+				text-align: center;
+				width: 1em;
+				border: 0.01em solid white;
+				border-radius: 0.2em;
+				cursor: pointer;
+			}
+		}
+
+		p#poptext {
+			margin-top: 2em;
+		}
+	}
+}

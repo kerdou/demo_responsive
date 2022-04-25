@@ -1,0 +1,109 @@
+main#mainplanetesint {
+	display: flex;
+
+	/*** LEFT SECTION ***/
+	aside {
+		width: 25%;
+		text-align: center;
+		margin: 3% 0 0 2%;
+
+		h1 {
+			margin-bottom: 2em;
+		}
+
+		ul {
+			li {
+				input {
+					margin: 0.5em;
+					width: 7em;
+					font-family: 'Audiowide', cursive;
+					color: white;
+					background-color: grey;
+					border: 0;
+					cursor: pointer;
+				}
+
+				input#voidbutton {
+					pointer-events: none;
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	/*** RIGHT SECTION ***/
+	section {
+		display: none;
+		width: 75%;
+
+		div#sol {
+			position: relative;
+
+			div#gravity {
+				position: absolute;
+				width: 0.063em;
+				height: 0.063em;
+				left: 50%;
+				top: 50%;
+
+				img {
+					transform: translateX(-50%) translateY(-50%);
+				}
+
+				img#sun {
+					position: absolute;
+				}
+
+				div {
+					position: absolute;
+				}
+
+				div#mercury {
+					width: 26.14em;
+					left: -13.07em;
+				}
+
+				div#venus {
+					width: 33.16em;
+					left: -16.58em;
+				}
+
+				div#earth {
+					width: 38.91em;
+					left: -19.46em;
+				}
+
+				div#mars {
+					width: 50em;
+					left: -25em;
+				}
+			}
+		}
+
+		.mercuryanim {
+			animation: solanim 1.92s linear infinite;
+		}
+
+		.venusanim {
+			animation: solanim 4.91s linear infinite;
+		}
+
+		.earthanim {
+			animation: solanim 7.96s linear infinite;
+		}
+
+		.marsanim {
+			animation: solanim 15s linear infinite;
+		}
+
+		@keyframes solanim {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}

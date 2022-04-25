@@ -1,0 +1,25 @@
+footer {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	margin-top: 2%;
+	padding: 0 10%;
+	background: url(./../img/footer.jpg) no-repeat;
+	background-size: cover;
+
+	a {
+		flex: 1;
+		padding: 0;
+		margin: 2% 0;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+	}
+
+	span {
+		flex: 1;
+		text-align: center;
+	}
+}
