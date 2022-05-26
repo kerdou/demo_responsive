@@ -14,9 +14,8 @@
 
 - The objective of that exercise was to replicate a mockup with the given assets
 - It was meant to be responsive and use the "jQuery Pageslide" plugin for the mobile menu
-- The pages are stuffed with little details given by the teacher's instructions
+- The pages are packed with little details given by the teacher's instructions and e few personal decisions
 - That exercise was much later reworked in order to include Sass and make it much more readable
-
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
