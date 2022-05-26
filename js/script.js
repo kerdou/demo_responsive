@@ -123,7 +123,7 @@ $(function () {
                     $('.planets').removeClass('mercuryanim venusanim earthanim marsanim').fadeIn(500, 'linear').delay(500);
                     solResize();
                     $('#sol').delay(3000).css({
-                        'transition': 'linear 0s'
+                        'transition': 'linear 1s'
                     });
                 });
                 break;
